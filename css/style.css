@@ -456,7 +456,7 @@ main.column .main-area {
 	/*サブエリア*/
 	main.column .sub-area {
 		order: 1;		/*並び順。数字の小さい順番に表示されます。*/
-		width: 230px;	/*幅*/
+		width: 250px;	/*幅*/
 	}
 
 	}/*追加指定ここまで*/
