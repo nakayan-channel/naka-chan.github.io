@@ -724,3 +724,76 @@ main.column .main-area {
 #contents p {
 	margin: 1rem;	/*外側に空けるスペース*/
 }
+
+/*３列タイプのボックス（flex）
+---------------------------------------------------------------------------*/
+/*ボックス１個あたり*/
+.list-flex .list {
+	position: relative;
+	margin-bottom: 1rem;	/*ボックス同士の上下間に空けるスペース*/
+	padding: 20px;			/*ボックス内の余白*/
+	background: #fff;		/*背景色*/
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.1);	/*ボックスの影。右へ、下へ、ぼかし幅、0,0,0は黒の事で0.1は色が10%出た状態。*/
+	display: flex;				/*flexボックスを使う指定*/
+	flex-direction: column;		/*子要素を縦並びにする*/
+	justify-content: space-between;	/*並びかたの種類の指定*/
+}
+
+/*ボックス内のh4タグ*/
+.list-flex .list h4 {
+	margin: 0;
+	color: #333;	/*文字色*/
+}
+.list-flex .list h4 a {
+	color: inherit;
+}
+
+/*ボックス内のpタグ*/
+.list-flex .list .text p {
+	margin: 0;
+	font-size: 0.8em;	/*文字サイズを80%に*/
+	line-height: 1.5;	/*行間を少し狭く*/
+}
+
+/*ボックス内のfigure画像*/
+.list-flex .list figure {
+	margin-bottom: 1rem;	/*下に空けるスペース*/
+}
+
+/*ボタン*/
+.list-flex .btn a {
+	display: block;text-decoration: none;
+	text-align: center;		/*テキストをセンタリング*/
+	background: #eee;		/*背景色*/
+	border: 1px solid #999;	/*枠線の幅、線種、色*/
+	padding: 5px 10px;		/*ボタン内の余白*/
+	margin-top: 1rem;		/*ボタンの上に空けるスペース*/
+}
+
+	/*画面幅900px以上の追加指定*/
+	@media screen and (min-width:900px) {
+
+	/*listブロック全体を囲むブロック*/
+	.list-flex {
+		display: flex;		/*flexボックスを使う指定*/
+		flex-wrap: wrap;	/*折り返す指定*/
+	}
+
+	/*１個あたりのボックス設定*/
+	.list-flex .list {
+		width: 32%;			/*幅。３列になります。*/
+		margin-right: 2%;	/*右側へのマージン。ボックス同士の左右の余白です。*/
+	}
+	
+	/*3の倍数目のボックスの右側のマージンをなくす*/
+	.list-flex .list:nth-of-type(3n) {
+		margin-right: 0;
+	}
+
+	/*ボックス内のtextブロックだけ伸ばす*/
+	.list-flex .list .text {
+		flex: 1;
+	}
+
+	}/*追加指定ここまで*/
+
